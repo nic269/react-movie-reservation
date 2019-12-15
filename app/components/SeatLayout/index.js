@@ -4,6 +4,7 @@ import cx from 'classnames';
 import _upperCase from 'lodash/upperCase';
 import _isArray from 'lodash/isArray';
 import _get from 'lodash/get';
+import _noop from 'lodash/noop';
 
 // Utils
 import numberToVNDString from 'utils/number-to-vnd-string/number-to-vnd-string';
@@ -46,6 +47,7 @@ function SeatLayout(props) {
                       key={seatId}
                       onClick={isDisabled ? undefined : onSelect(seat)}
                       role="presentation"
+                      data-testid={`seat-layout-${seatId}`}
                     >
                       {seatNo}
                     </div>
@@ -138,7 +140,7 @@ SeatLayout.defaultProps = {
   seatLayout: [],
   selectedIds: [],
   seatPrice: {},
-  onSelect: () => {},
+  onSelect: _noop,
 };
 
 export default memo(SeatLayout);

@@ -19,7 +19,7 @@ To run project on your localhost (will use 3000 port)
 $ yarn start or npm run start
 ```
 
-Then you can access the application by url:
+Then you can access the application by this url:
 
 ```
 http://localhost:3000

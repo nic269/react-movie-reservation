@@ -1,38 +1,52 @@
-/**
- *
- * Tests for SeatSelection
- *
- * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
- *
- */
-
 import React from 'react';
 import { render } from 'react-testing-library';
-// import 'jest-dom/extend-expect'; // add some helpful assertions
+import { Provider } from 'react-redux';
+import { browserHistory } from 'react-router-dom';
+import 'jest-dom/extend-expect';
 
-import { SeatSelection } from '../index';
+import configureStore from '../../../configureStore';
+import { SeatSelection, mapDispatchToProps } from '../index';
+import { updateSeatsReservation } from '../actions';
+jest.mock('containers/Room/Loadable', () => 'MockedRoom');
 
 describe('<SeatSelection />', () => {
-  it('Expect to not log errors in console', () => {
-    const spy = jest.spyOn(global.console, 'error');
-    const dispatch = jest.fn();
-    render(<SeatSelection dispatch={dispatch} />);
-    expect(spy).not.toHaveBeenCalled();
+  let store;
+  let props;
+  beforeAll(() => {
+    props = {
+      onSelectSeat: jest.fn(),
+      selectedSeats: [
+        { id: 'a1', type: 'std' },
+        { id: 'c4', type: 'vip' },
+        { id: 'd3', type: 'dlx' },
+      ],
+    };
+    store = configureStore({}, browserHistory);
   });
 
-  it('Expect to have additional unit tests specified', () => {
-    expect(true).toEqual(false);
-  });
-
-  /**
-   * Unskip this test to use it
-   *
-   * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
-   */
-  it.skip('Should render and match the snapshot', () => {
+  it('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<SeatSelection />);
+    } = render(
+      <Provider store={store}>
+        <SeatSelection {...props} />
+      </Provider>,
+    );
     expect(firstChild).toMatchSnapshot();
+  });
+});
+
+describe('mapDispatchToProps', () => {
+  it('should call getResult', () => {
+    const dispatch = jest.fn();
+    const result = mapDispatchToProps(dispatch);
+    const seat = { id: 'd3', type: 'dlx' };
+    const seats = [
+      { id: 'a1', type: 'std' },
+      { id: 'c4', type: 'vip' },
+      { id: 'd3', type: 'dlx' },
+    ];
+    result.onSelectSeat(seat, seats);
+    expect(dispatch).toHaveBeenCalledWith(updateSeatsReservation(seats));
   });
 });

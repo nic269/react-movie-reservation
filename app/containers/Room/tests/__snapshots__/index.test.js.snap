@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Room /> Should render and match the snapshot 1`] = `
+<div>
+  <button
+    data-testid="zoom-in"
+    type="button"
+  >
+    +
+  </button>
+  <span
+    data-testid="zoom-level"
+  >
+    1
+    x
+  </span>
+  <button
+    data-testid="zoom-out"
+    type="button"
+  >
+    -
+  </button>
+</div>
+`;

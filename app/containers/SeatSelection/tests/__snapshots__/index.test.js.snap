@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SeatSelection /> Should render and match the snapshot 1`] = `
+<div>
+  <div>
+    <h1>
+      Spider-man: Người nhện xa nhà
+    </h1>
+    <p>
+      C13|2D Vietnam sub
+    </p>
+  </div>
+  <mockedroom />
+  <div>
+    <div>
+      <div>
+        <h4>
+          CGV Crescent Mall
+        </h4>
+        <p>
+          09:10
+          ~
+          11:10
+           | 
+          08/07/2019
+        </p>
+      </div>
+      <div>
+        <span>
+          ₫260,000
+        </span>
+      </div>
+      <button
+        type="button"
+      >
+        Chọn combo
+      </button>
+      <button
+        type="button"
+      >
+        Thanh toán
+      </button>
+    </div>
+  </div>
+</div>
+`;

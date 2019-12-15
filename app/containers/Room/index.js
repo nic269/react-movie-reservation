@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _debounce from 'lodash/debounce';
+import _noop from 'lodash/noop';
 
 // Components, Containers, HOCs
 import SeatLayout from 'components/SeatLayout';
@@ -68,11 +69,11 @@ export function Room(props) {
   return (
     <>
       <div className={styles.zoomContainer}>
-        <button type="button" onClick={zoomIn}>
+        <button type="button" data-testid="zoom-in" onClick={zoomIn}>
           +
         </button>
-        <span>{zoomLevel}x</span>
-        <button type="button" onClick={zoomOut}>
+        <span data-testid="zoom-level">{zoomLevel}x</span>
+        <button type="button" data-testid="zoom-out" onClick={zoomOut}>
           -
         </button>
       </div>
@@ -89,6 +90,8 @@ export function Room(props) {
             selectedIds={selectedIds}
             seatPrice={MOCK_SERVER_RESPONSE.seatPrice}
             onSelect={onSelect}
+            onClick={onSelect}
+            data-testid="seat-layout"
           />
         </div>
       </div>
@@ -101,7 +104,7 @@ Room.propTypes = {
 };
 
 Room.defaultProps = {
-  onSelect: () => {},
+  onSelect: _noop,
 };
 
 export default memo(Room);

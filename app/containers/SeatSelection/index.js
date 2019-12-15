@@ -82,13 +82,11 @@ const mapStateToProps = createStructuredSelector({
   selectedSeats: makeSelectSelectedSeats(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onSelectSeat: (seat, seats) => {
-      dispatch(updateSeatsReservation(seats));
-    },
-  };
-}
+export const mapDispatchToProps = dispatch => ({
+  onSelectSeat: (seat, seats) => {
+    dispatch(updateSeatsReservation(seats));
+  },
+});
 
 const withConnect = connect(
   mapStateToProps,

@@ -1,13 +1,13 @@
-// import produce from 'immer';
+import produce from 'immer';
 import seatSelectionReducer from '../reducer';
-// import { someAction } from '../actions';
+import { updateSeatsReservation } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('seatSelectionReducer', () => {
   let state;
   beforeEach(() => {
     state = {
-      // default state params here
+      selectedSeats: [],
     };
   });
 
@@ -16,17 +16,16 @@ describe('seatSelectionReducer', () => {
     expect(seatSelectionReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  /**
-   * Example state change comparison
-   *
-   * it('should handle the someAction action correctly', () => {
-   *   const expectedResult = produce(state, draft => {
-   *     draft.loading = true;
-   *     draft.error = false;
-   *     draft.userData.nested = false;
-   *   });
-   *
-   *   expect(appReducer(state, someAction())).toEqual(expectedResult);
-   * });
-   */
+  it('should handle the updateSeatsReservation action correctly', () => {
+    const expectedResult = produce(state, draft => {
+      draft.selectedSeats = [{ id: 'a1' }, { id: 'c4' }];
+    });
+
+    expect(
+      seatSelectionReducer(
+        state,
+        updateSeatsReservation([{ id: 'a1' }, { id: 'c4' }]),
+      ),
+    ).toEqual(expectedResult);
+  });
 });

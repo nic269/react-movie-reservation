@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SeatLayout /> Should render and match the snapshot 1`] = `
+<div>
+  <div>
+    <span />
+    <div
+      class="undefined"
+      data-testid="seat-layout-a1"
+      role="presentation"
+    >
+      1
+    </div>
+    <div
+      class=""
+      data-testid="seat-layout-a2"
+      disabled=""
+      role="presentation"
+    >
+      2
+    </div>
+  </div>
+  <div>
+    <span />
+    <div
+      class=""
+      data-testid="seat-layout-b1"
+      role="presentation"
+    >
+      1
+    </div>
+    <div
+      class=""
+      data-testid="seat-layout-b2"
+      disabled=""
+      role="presentation"
+    >
+      2
+    </div>
+  </div>
+  <div>
+    <span />
+    <div
+      class=""
+      data-testid="seat-layout-c1"
+      role="presentation"
+    >
+      1
+    </div>
+    <div
+      class=""
+      data-testid="seat-layout-c2"
+      role="presentation"
+    >
+      2
+    </div>
+  </div>
+</div>
+`;

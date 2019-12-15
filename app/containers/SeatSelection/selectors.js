@@ -18,7 +18,7 @@ const selectSeatSelection = state => state.seatSelection || initialState;
 const makeSelectSelectedSeats = () =>
   createSelector(
     selectSeatSelection,
-    ({ selectedSeats }) => selectedSeats,
+    ({ selectedSeats }) => selectedSeats || [],
   );
 
 export default makeSelectSelectedSeats;

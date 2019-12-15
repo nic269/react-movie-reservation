@@ -1,0 +1,73 @@
+@import 'app/styles/theme';
+
+.container {
+  background: $black;
+  min-height: 100vh;
+  color: $white;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .desc {
+    margin-top: 10px;
+    color: $text-secondary-color;
+  }
+}
+
+.btBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: $white;
+  color: $black;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.ticketInfo {
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.cineInfo {
+  h4 {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.amount {
+  text-align: center;
+
+  span {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+
+.primaryButton {
+  background-color: $black;
+  color: $white;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}

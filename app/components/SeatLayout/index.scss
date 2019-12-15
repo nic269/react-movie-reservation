@@ -1,0 +1,94 @@
+@import 'app/styles/theme';
+
+.seatWrapper {
+  display: grid;
+  grid-row-gap: 5px;
+}
+
+.row {
+  display: grid;
+  grid-column-gap: 5px;
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.rowName {
+  align-items: center;
+  color: $standard-text-color;
+  display: flex;
+  justify-content: center;
+}
+
+.seat {
+  align-items: center;
+  border: 1px solid $standard-border-color;
+  border-radius: 10px;
+  color: transparent;
+  cursor: pointer;
+  display: flex;
+  height: $seat-height;
+  justify-content: center;
+
+  &.std {
+    border-color: $standard-border-color;
+  }
+
+  &.emp {
+    visibility: hidden;
+  }
+
+  &.vip {
+    border-color: $vip-border-color;
+  }
+
+  &.dlx {
+    border-color: $deluxe-border-color;
+  }
+
+  &.selected {
+    background-color: $selected-bg-color;
+    color: $selected-text-color;
+  }
+
+  &.rvd {
+    background-color: $reserved-bg-color;
+    border-color: $reserved-border-color;
+    cursor: default;
+  }
+}
+
+.instructions {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: 30% auto;
+  margin-top: 40px;
+  padding-left: 20px;
+}
+
+.instructionsStatus {
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-rows: 20px 20px;
+}
+
+.instructionsType {
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-rows: 20px 20px 20px;
+}
+
+.instructionsRow {
+  align-items: center;
+  display: flex;
+}
+
+.instructionsIcon {
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.instructionsText {
+  color: $standard-text-color;
+}

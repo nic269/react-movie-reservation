@@ -1,0 +1,71 @@
+@import 'app/styles/theme';
+
+.roomContainer {
+  margin-bottom: 30px;
+  overflow: auto;
+  position: relative;
+}
+
+.roomWrapper {
+  margin: 0 auto;
+  padding: 15px;
+  transition: all .2s ease-out;
+  user-select: none;
+  width: calc((15*#{$seat-width}) + (14*5px) + 30px);
+
+  &.zoom1x {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+
+  &.zoom2x {
+    transform: scale(2, 2);
+    transform-origin: 0 0;
+  }
+
+  &.zoom3x {
+    transform: scale(3, 3);
+    transform-origin: 0 0;
+  }
+}
+
+.screen {
+  border: 1px solid $screen-bg-color;
+  margin: 0 auto 50px;
+  width: 70%;
+}
+
+.zoomContainer {
+  background-color: $zoom-container-bg;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 40px auto 40px;
+  margin: 0 auto;
+  opacity: 0.3;
+  overflow: hidden;
+  width: 150px;
+
+  button {
+    background: $white;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    width: 100%;
+  }
+
+  span {
+    color: $black;
+    display: inline-block;
+    font-size: 13px;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .roomContainer {
+    margin-bottom: 166px;
+  }
+}
